@@ -34,7 +34,7 @@ def make_new_dataset(df, seed = None, round = True):
     df_new = pd.DataFrame(index=df.index, columns=df.columns, dtype=float)
 
     for _test_time in df.index:
-        _obs = df.loc[_test_time].dropna()
+        _obs = df.loc[_test_time]
         df_new.loc[_test_time] = generate_new_samples(_obs, num_samples=len(_obs), seed = seed, round = round)
 
     return df_new
